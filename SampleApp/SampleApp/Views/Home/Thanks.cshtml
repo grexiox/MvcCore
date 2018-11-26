@@ -1,16 +1,16 @@
 ﻿@model SampleApp.Models.Guest
 
 @{
-    ViewData["Title"] = "ResponseFormTitle";
+    ViewData["Title"] = "Thanks";
     Layout = null;
 }
-
-<h2>ResponseForm</h2>
+<h1>@Model.Name</h1>
+<h2>Thanks</h2>
 <h4>Guest</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ResponseForm">
+        <form asp-action="Thanks">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -29,17 +29,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="WillAttend" class="control-label"></label>
-                <select asp-for="WillAttend">
-                    <option value="">Option</option>
-                    <option value="true">YES</option>
-                    <option value="false">NO</option>
-                </select>
+                <input asp-for="WillAttend" class="form-control" />
+                <span asp-validation-for="WillAttend" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>
+    <p><a asp-action="GuestList">Guest List</a></p>
 </div>
 
 <div>

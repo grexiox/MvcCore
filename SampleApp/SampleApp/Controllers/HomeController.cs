@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SampleApp.Controllers.Repository;
 using SampleApp.Models;
 
 namespace SampleApp.Controllers
@@ -23,7 +24,12 @@ namespace SampleApp.Controllers
         [HttpPost]
         public ViewResult ResponseForm(Guest guest)
         {
-            return View();
+            GuestRepository.AddGuest(guest);
+            return View("Thanks",guest);
+        }
+        public ViewResult GuestList()
+        {
+            return View(GuestRepository.AllGuests);
         }
     }
 }

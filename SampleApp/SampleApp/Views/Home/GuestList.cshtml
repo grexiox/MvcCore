@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "GuestList";
+    Layout = null;
+}
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(SampleApp.Models.Guest g in Model)
+            {
+                <tr>
+                    <td>@g.Name</td>
+                    <td>@g.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+<h2>GuestList</h2>
+
